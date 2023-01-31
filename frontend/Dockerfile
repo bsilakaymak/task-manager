@@ -3,8 +3,6 @@ FROM node:18.12.1-alpine3.15
 ARG TZ=Europe/Amsterdam
 ENV TZ Europe/Amsterdam
 
-# Use `--no-cache` to get a smaller image, by removing unused files afterwards.
-# The packages are sorted, one per line, to have better diffs in Git.
 RUN \
     apk add --no-cache \
     bash \
@@ -37,12 +35,7 @@ RUN mkdir -pv /var/www/node_modules
 
 ADD --chown=node:node ./package.json ./package.json
 
-ARG NPM_TOKEN
 ARG HUSKY_SKIP_INSTALL=true
-
-
-# Altering the build directories should not trigger `yarn install`,
-# that's why these are not in the same `mkdir` command.
 
 RUN mkdir -p \
     /var/www/dist \
@@ -50,16 +43,8 @@ RUN mkdir -p \
 
 ADD --chown=node:node ./ /var/www/
 
-# For development, install `devDependencies`.
+RUN npm ci
 
-RUN     echo "@xpay-ams:registry=https://gitlab.com/api/v4/packages/npm/" > .npmrc \
-    &&  echo "//gitlab.com/api/v4/packages/npm/:_authToken=${NPM_TOKEN}" >> .npmrc \
-    &&  echo "timeout=300000" >> .npmrc \
-    &&  npm ci
-
-# Add lowercase proxy settings for compatibility,
-# but use uppercase exports for shellcheck compatibility.
-# https://unix.stackexchange.com/a/212972
 ENV \
     HTTP_PROXY=$HTTP_PROXY \
     HTTPS_PROXY=$HTTPS_PROXY \
