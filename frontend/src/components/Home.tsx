@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const [tasks, setTasks] = useState([]);
 
   // const addTask = async (name: string) => {
