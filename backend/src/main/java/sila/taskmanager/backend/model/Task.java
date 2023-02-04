@@ -2,12 +2,17 @@ package sila.taskmanager.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
 @Entity
 public class Task {
     @Id
+    @GeneratedValue
+    @UuidGenerator
+
     private final UUID id;
     private  String description;
     private  String title;

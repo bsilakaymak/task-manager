@@ -1,10 +1,15 @@
-import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+import Routes from "./components/Routes";
+import { AppState } from "./context";
 
 function App() {
   return (
     <div className="App">
-      Hello World How are you?
-      <Home />
+      <AppState>
+        <Routes>
+          <Navbar />
+        </Routes>
+      </AppState>
     </div>
   );
 }

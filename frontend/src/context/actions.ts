@@ -1,0 +1,8 @@
+export enum AppContextActions {
+  GET_TASKS = "GET_TASKS",
+  GET_TASK = "GET_TASK",
+  CREATE_TASK = "CREATE_TASK",
+  UPDATE_TASK = "UPDATE_TASK",
+  DELETE_TASK = "DELETE_TASK",
+  TASKS_ERROR = "TASKS_ERROR",
+}
