@@ -1,4 +1,5 @@
 import { Menu, MenuProps } from "antd";
+import { Header } from "antd/es/layout/layout";
 import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -20,9 +21,9 @@ const Navbar = () => {
   const location = useLocation().pathname.split("/")[1];
 
   return (
-    <>
+    <Header>
       <Menu selectedKeys={[location]} mode="horizontal" items={items} />
-    </>
+    </Header>
   );
 };
 

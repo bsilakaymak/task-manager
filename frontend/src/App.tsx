@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Global/Navbar";
 import Routes from "./components/Routes";
 import { AppState } from "./context";
 

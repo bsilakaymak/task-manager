@@ -3,10 +3,10 @@ import {
   Route,
   Routes as RouterRoutes,
 } from "react-router-dom";
-import AllTasks from "./AllTasks";
-import CurrentTask from "./CurrentTask";
-import Home from "./Home";
-import NewTask from "./NewTask";
+import AllTasks from "./Tasks/AllTasks";
+import CurrentTask from "./TaskDetails/CurrentTask";
+import Home from "./Home/Home";
+import NewTask from "./NewTask/NewTask";
 const Routes = (props: { children: React.ReactNode }) => {
   return (
     <Router>
@@ -20,5 +20,4 @@ const Routes = (props: { children: React.ReactNode }) => {
     </Router>
   );
 };
-
 export default Routes;
